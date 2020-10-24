@@ -87,7 +87,7 @@ function get_loads(req){
       item.self = req.protocol + "://" + req.get("host") + "/loads/" + item.id
   })
     if(entities[1].moreResults !== ds.Datastore.NO_MORE_RESULTS ){
-        results.next = req.protocol + "://" + req.get("host") + req.baseUrl + "?cursor=" + entities[1].endCursor;
+        results.next = req.protocol + "://" + req.get("host") + req.baseUrl + "?cursor=" + encodeURIComponent(entities[1].endCursor);
     }
     return results;
   })
